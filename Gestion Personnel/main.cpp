@@ -14,7 +14,7 @@
 
 #include "fonctions.hpp"
 
-//derniere version  BLABLABLA TEST GIT deuxieme version du test
+//derniere version  coco, noa, si vous voyez ce message c'est que le git fonctionne 
 
 
 int main(int argc, const char * argv[]) {
