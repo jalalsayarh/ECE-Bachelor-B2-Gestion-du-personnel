@@ -165,7 +165,7 @@ int main(int argc, const char * argv[]) {
                         default:
                             break;
                     }
-                    retourMenu=blindage_Saisie_ChoixBinaire("\nRetour au menu précedent ?\n ->", "oui", "non");
+                    retourMenu=blindage_Saisie_ChoixBinaire("\nRetour au menu précedent (oui/non) ?\n ->", "oui", "non");
                 }while (retourMenu=="oui");
                 cout<<"--------------------\n"; /* point de repere dans le code */
                 break;
@@ -249,7 +249,62 @@ int main(int argc, const char * argv[]) {
                         
                         cout<<"\nVecteur de Personnes que vous avez saisi: \n";
                         affiche_Vecteur(&lesGens);
-
+                        
+                        string retourMenu;
+                        do{
+                            cout<<"\n\n";
+                            // proposition des options de tri
+                            cout<<"1. Afficher le contenu du vecteur.\n";
+                            cout<<"2. Trier par noms.\n";
+                            cout<<"3. Trier par prénoms.\n";
+                            cout<<"4. Trier par age.\n";
+                            cout<<"5. Rechercher un élément parmis les éléments du vecteur.\n";
+                            cout<<"6. Sauvegarder dans un fichier txt.\n";
+                            //cout<<"0. Retour au menu principal.\n";
+                            
+                            int choix;
+                            // saisie de la réponse au choix de tri
+                            cout<<"Veuillez faire un choix : ";
+                            cin>>choix;
+                            
+                            switch (choix) {
+                                case 1: /**Afficher le tableau */
+                                    afficheTab_Personne(tabEtape4, indiceMax);
+                                    break;
+                                    
+                                case 2: /**Trier le tableau par noms*/
+                                    tri_tab_personne_nom(tabEtape4, indiceMax);
+                                    afficheTab_Personne(tabEtape4, indiceMax);
+                                    break;
+                                    
+                                case 3: /**Trier le tableau par prénoms*/
+                                    tri_tab_personne_prenom(tabEtape4, indiceMax);
+                                    afficheTab_Personne(tabEtape4, indiceMax);
+                                    break;
+                                    
+                                case 4: /**Trier le tableau par âge*/
+                                    tri_tab_personne_age(tabEtape4, indiceMax);
+                                    afficheTab_Personne(tabEtape4, indiceMax);
+                                    break;
+                                    
+                                case 5: /**Rechercher un élément dans le tableau*/
+                                    recherche_personne_in_tab(tabEtape4, indiceMax);
+                                    break;
+                                    
+                                case 6: /**Sauvegarde dans un fichier txt*/
+                                    
+                                    break;
+                                
+                                    
+                                case 0: /** Retuor au menu pricipal*/
+                                    
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }
+                            retourMenu=blindage_Saisie_ChoixBinaire("\nRetour au menu précedent (oui/non) ?\n ->", "oui", "non");
+                        }while (retourMenu=="oui");
                         cout<<"\n----------------------FIN VECTEUR--------------------------------\n\n"; /*point de repere dans le code*/
 
                                     /* Fin de la partie avec le Vecteur */
