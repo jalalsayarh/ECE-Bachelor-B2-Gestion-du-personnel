@@ -32,15 +32,22 @@ int blindage_Saisie_ChoixIntervalle(string phrase, int borne1 ,int borne2);
 
 /* Etape 4*/
 void saisieTab_Personne(Personne* tab[],int nombre);    /** Saisie d'un tableau de personne envoyé en paramètre pour un nombre int de case envoyé en deuxieme parametre*/
-
 void afficheTab_Personne(Personne* tab[],int nombre);   /**Affichage d'un tableau de personne envoyé en paramètre pour un nombre int de case envoyé en deuxieme parametre*/
-
+void tri_tab_personne_nom(Personne* tab[],int nb);
+void tri_tab_personne_prenom(Personne* tab[],int nb);
+void tri_tab_personne_age(Personne* tab[],int nb);
+void recherche_personne_in_tab(Personne* tab[],int nb);
 
 
 /* Etape 9*/
 
 void saisie_Vecteur_Personne(vector<Personne*> *lesGens);
 void affiche_Vecteur(vector<Personne*> *lesGens);
+void tri_vecteur_personne_nom(vector<Personne*> *lesGens);
+void tri_vecteur_personne_prenom(vector<Personne*> *lesGens);
+void tri_vecteur_personne_age(vector<Personne*> *lesGens);
+void recherche_vecteur(vector<Personne*> *lesGens);
+
 
 void saisie_Liste_Personne(elementListe* start);    /** Saisie d'une liste de personne à partir d'un element de la liste donné comme point de départ */
 
@@ -49,10 +56,7 @@ void saisie_Liste_Personne(elementListe* start);    /** Saisie d'une liste de pe
 void write(string nomFichier);   /*écriture dans un fichier */
 void read(string nomFichier);    /* fonctions de lecture */
 
-void tri_tab_personne_nom(Personne* tab[],int nb);
-void tri_tab_personne_prenom(Personne* tab[],int nb);
-void tri_tab_personne_age(Personne* tab[],int nb);
-void recherche_personne_in_tab(Personne* tab[],int nb);
+
 #endif /* fonctions_hpp */
 
 //bool operator==(Personne const& a, Personne const& b);

@@ -269,26 +269,26 @@ int main(int argc, const char * argv[]) {
                             
                             switch (choix) {
                                 case 1: /**Afficher le tableau */
-                                    afficheTab_Personne(tabEtape4, indiceMax);
+                                    affiche_Vecteur(&lesGens);
                                     break;
                                     
                                 case 2: /**Trier le tableau par noms*/
-                                    tri_tab_personne_nom(tabEtape4, indiceMax);
-                                    afficheTab_Personne(tabEtape4, indiceMax);
+                                    tri_vecteur_personne_nom(&lesGens);
+                                    affiche_Vecteur(&lesGens);
                                     break;
                                     
                                 case 3: /**Trier le tableau par prénoms*/
-                                    tri_tab_personne_prenom(tabEtape4, indiceMax);
-                                    afficheTab_Personne(tabEtape4, indiceMax);
+                                    tri_vecteur_personne_prenom(&lesGens);
+                                    affiche_Vecteur(&lesGens);
                                     break;
                                     
                                 case 4: /**Trier le tableau par âge*/
-                                    tri_tab_personne_age(tabEtape4, indiceMax);
-                                    afficheTab_Personne(tabEtape4, indiceMax);
+                                    tri_vecteur_personne_age(&lesGens);
+                                    affiche_Vecteur(&lesGens);
                                     break;
                                     
                                 case 5: /**Rechercher un élément dans le tableau*/
-                                    recherche_personne_in_tab(tabEtape4, indiceMax);
+                                    recherche_vecteur(&lesGens);
                                     break;
                                     
                                 case 6: /**Sauvegarde dans un fichier txt*/
