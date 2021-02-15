@@ -100,10 +100,10 @@ int main(int argc, const char * argv[]) {
                 string choixPersonne;
                 Personne *tabEtape4[indiceMax];
     
-                afficheTab_Personne(tabEtape4, indiceMax+1);
+                
                 
                 for (int i=0; i<indiceMax; i++) {
-                    /**Initialisation du tableau de voiture */
+                    /**Initialisation du tableau de pointeur */
                     tabEtape4[i]=NULL;
                 }
     
@@ -111,7 +111,62 @@ int main(int argc, const char * argv[]) {
                 saisieTab_Personne(tabEtape4, indiceMax);
     
                 afficheTab_Personne(tabEtape4, indiceMax);
-    
+                
+                string retourMenu;
+                do{
+                    cout<<"\n\n";
+                    // proposition des options de tri
+                    cout<<"1. Afficher le tableau.\n";
+                    cout<<"2. Trier le tableau par noms.\n";
+                    cout<<"3. Trier le tableau par prénoms.\n";
+                    cout<<"4. Trier le tableau par age.\n";
+                    cout<<"5. Rechercher un élément dans le tableau.\n";
+                    cout<<"6. Sauvegarder dans un fichier txt.\n";
+                    //cout<<"0. Retour au menu principal.\n";
+                    
+                    int choix;
+                    // saisie de la réponse au choix de tri
+                    cout<<"Veuillez faire un choix : ";
+                    cin>>choix;
+                    
+                    switch (choix) {
+                        case 1: /**Afficher le tableau */
+                            afficheTab_Personne(tabEtape4, indiceMax);
+                            break;
+                            
+                        case 2: /**Trier le tableau par noms*/
+                            tri_tab_personne_nom(tabEtape4, indiceMax);
+                            afficheTab_Personne(tabEtape4, indiceMax);
+                            break;
+                            
+                        case 3: /**Trier le tableau par prénoms*/
+                            tri_tab_personne_prenom(tabEtape4, indiceMax);
+                            afficheTab_Personne(tabEtape4, indiceMax);
+                            break;
+                            
+                        case 4: /**Trier le tableau par âge*/
+                            tri_tab_personne_age(tabEtape4, indiceMax);
+                            afficheTab_Personne(tabEtape4, indiceMax);
+                            break;
+                            
+                        case 5: /**Rechercher un élément dans le tableau*/
+                            recherche_personne_in_tab(tabEtape4, indiceMax);
+                            break;
+                            
+                        case 6: /**Sauvegarde dans un fichier txt*/
+                            
+                            break;
+                        
+                            
+                        case 0: /** Retuor au menu pricipal*/
+                            
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                    retourMenu=blindage_Saisie_ChoixBinaire("\nRetour au menu précedent ?\n ->", "oui", "non");
+                }while (retourMenu=="oui");
                 cout<<"--------------------\n"; /* point de repere dans le code */
                 break;
             }
@@ -206,12 +261,9 @@ int main(int argc, const char * argv[]) {
 
                         cout<<"\n--------------Test saisie liste -------------------------\n";/*point de repere dans                                                                    le code */
                         
-
-
-                        
                         do {
                             saisie_Liste_Personne(start);
-                            nouveau=blindage_Saisie_ChoixBinaire("\nAjouter une nouvelle personne ? (1 pour oui // 0 pour non)\n-> ", "oui", "non");
+                            nouveau=blindage_Saisie_ChoixBinaire("\n1-Ajouter une nouvelle personne\n2-afficher la liste\n-> ", "1", "2");
                         } while (nouveau=="oui");
 
 
@@ -275,6 +327,7 @@ int main(int argc, const char * argv[]) {
 //                {
 //                    tabEtape4[i]->affiche();
 //                }
+//                afficheTab_Personne(tabEtape4, indiceMax+1);
                 
 
 
