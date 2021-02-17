@@ -31,13 +31,14 @@ elementListe* elementListe::getPrevious(){  return previous;}
 void elementListe::afficheListe()
 {
     elementListe *intermediaire=new elementListe();
+    
     intermediaire=this;
     
-    intermediaire->getSomeone()->affiche(); //affichage de l'element de départ
-
+    cout<<getSomeone()->affiche(); //affichage de l'element de départ
+    
     while (intermediaire->getNext()!=NULL) {       //tant qu'il existe un suivant dans la liste
         intermediaire = intermediaire->getNext();  //On se place sur le suivant en question
-        intermediaire->getSomeone()->affiche();    //Et on l'affiche
+        cout<<(intermediaire->getSomeone())->affiche();    //Et on l'affiche
     }
 }
 

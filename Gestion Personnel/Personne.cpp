@@ -61,9 +61,10 @@ void Personne::setEmail(string adresseEmail)
 
 
 //methodes
-void Personne::affiche()
+string Personne::affiche()
 {
-    cout<<"\nPrénom: "<<getPrenom()<<"\nNom: "<<getNom()<<"\nAge: "<<getAge()<<" ans \nAdresse mail: "<<getEmail()<<endl;
+    string message = static_cast<string>("\nPrénom: ")+static_cast<string>(getPrenom())+static_cast<string>("\nNom: ")+static_cast<string>(getNom())+static_cast<string>("\nAge: ")+to_string(getAge())+static_cast<string>(" ans \nAdresse mail: ")+static_cast<string>(getEmail())+static_cast<string>("\n");
+    return message;
 }
 
 void Personne::newPerson()

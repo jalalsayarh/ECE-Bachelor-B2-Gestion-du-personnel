@@ -47,7 +47,7 @@ public:
     void setUE(string* lUE);
     
     //méthodes
-    /*virtual*/ void affiche();
+    /*virtual*/ string affiche();
     void newEleve();
     void modifNote();
 

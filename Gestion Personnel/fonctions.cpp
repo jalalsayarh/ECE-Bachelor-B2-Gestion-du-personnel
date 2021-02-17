@@ -125,7 +125,7 @@
 
     for (int i=0; i<nombre; i++)
     {
-        dynamic_cast<Personne*>(*(tab+i))->affiche();
+       cout<< dynamic_cast<Personne*>(*(tab+i))->affiche();
     }
 }
 
@@ -259,7 +259,7 @@
                         {
                             compteur++;
                             cout<<"-------------------------\n";
-                            (*(tab+i))->affiche();
+                            cout<<(*(tab+i))->affiche();
                         }
                     }
                     if (compteur==0)
@@ -283,7 +283,7 @@
                         {
                             compteur++;
                             cout<<"-------------------------\n";
-                            (*(tab+i))->affiche();
+                            cout<<(*(tab+i))->affiche();
                         }
                     }
                     if (compteur==0)
@@ -306,7 +306,7 @@
                         {
                             compteur++;
                             cout<<"-------------------------\n";
-                            (*(tab+i))->affiche();
+                            cout<<(*(tab+i))->affiche();
                         }
                     }
                     if (compteur==0)
@@ -329,7 +329,7 @@
                         {
                             compteur++;
                             cout<<"-------------------------\n";
-                            (*(tab+i))->affiche();
+                            cout<<(*(tab+i))->affiche();
                         }
                     }
                     if (compteur==0)
@@ -419,7 +419,7 @@
 {
     for (Personne* gens : *lesGens)
     {
-        gens->affiche();
+        cout<<gens->affiche();
     }
 }
 
@@ -530,7 +530,7 @@
                         {
                             compteur++;
                             cout<<"-------------------------\n";
-                            gens->affiche();
+                            cout<<gens->affiche();
                         }
                     }
                     if (compteur==0) {
@@ -555,7 +555,7 @@
                         {
                             compteur++;
                             cout<<"-------------------------\n";
-                            gens->affiche();
+                            cout<<gens->affiche();
                         }
                     }
                         if (compteur==0) {
@@ -579,7 +579,7 @@
                         {
                             compteur++;
                             cout<<"-------------------------\n";
-                            gens->affiche();
+                            cout<<gens->affiche();
                         }
                     }
                         if (compteur==0) {
@@ -601,7 +601,7 @@
                         {
                             compteur++;
                             cout<<"-------------------------\n";
-                            gens->affiche();
+                            cout<<gens->affiche();
                         }
                     }
                         if (compteur==0) {
@@ -688,7 +688,6 @@
 
 /*16*/void write(string nomFichier,Personne* tab[], int nb )
 {
-    cout<<"\n----fonction write-----";
     /*
     Sur un fichier déja existant
     Fichier .txt
@@ -701,23 +700,54 @@
     string const monFichier(nomFichier);
     ofstream monFlux(monFichier.c_str());
     
-    string message;
     // Déclaration d'un flux qui permet d'écrire dans un fichier
     if(monFlux) // on teste pour voir si tout est ok
     {
-        cout<<"\n Enregistrement dans le fichier "<<nomFichier<<endl;
+        cout<<"\n Enregistrement dans le fichier "<<nomFichier<<" en cours..."<<endl;
         // modifier l'écriture pour pouvoir écrire dans le fichier les informations relatives
-        monFlux << "Test fichier." << endl;
-        int age=22;
-        monFlux << "J'ai " << age << " ans." << endl;
-        monFlux<< "pas la peine de verifier, tout est okay on a dit"<<endl;
-        //message="\nEnregistremenet dans le fichier okay";
+        
+        for(int i=0; i<nb; i++)
+        {
+            monFlux<<"\n---------------------------\n";
+            monFlux <<(*(tab+i))->affiche();
+            //message="\nEnregistremenet dans le fichier okay";
+        }
+        monFlux<<"\n---------------------------\n";
+        
+        cout<<"\nEnregistrement terminé !"<<endl;
     }
     else // en cas d'erreur : pas de fichier, chemin incorrect ...
     {
         cout << "ERREUR: Impossible d'ouvrir le fichier." << endl;
     }
         
+}
+
+void write(string nomFichier, vector<Personne*> *lesGens)
+{
+    string const monFichier(nomFichier);
+    ofstream monFlux(monFichier.c_str());
+    
+    // Déclaration d'un flux qui permet d'écrire dans un fichier
+    if(monFlux) // on teste pour voir si tout est ok
+    {
+        cout<<"\n Enregistrement dans le fichier "<<nomFichier<<" en cours..."<<endl;
+        // modifier l'écriture pour pouvoir écrire dans le fichier les informations relatives
+        
+        for (Personne* gens : *lesGens)
+        {
+            monFlux<<"\n---------------------------\n";
+            monFlux <<gens->affiche();
+            //message="\nEnregistremenet dans le fichier okay";
+        }
+        monFlux<<"\n---------------------------\n";
+        
+        cout<<"\nEnregistrement terminé !"<<endl;
+    }
+    else // en cas d'erreur : pas de fichier, chemin incorrect ...
+    {
+        cout << "ERREUR: Impossible d'ouvrir le fichier." << endl;
+    }
 }
 
 /*17*/void read(string nomFichier)

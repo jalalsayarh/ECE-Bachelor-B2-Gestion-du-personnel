@@ -82,13 +82,14 @@ void Eleve::setUE(string* lUE)
 }
 
 //méthodes
-void Eleve::affiche() //affichage des information relative a un eleve
+string Eleve::affiche() //affichage des information relative a un eleve
 {
-    Personne::affiche();
-    cout<<"UE suivies: "<<nbrUE<<"\n\nNotes de l'élève: "<<endl;
+    string affichage = Personne::affiche()+static_cast<string>("UE suivies: ")+to_string(nbrUE)+static_cast<string>("\n\nNotes de l'élève: \n" );
+
     for (int i=0; i<nbrUE; i++) {
-           cout<<"UE"<<i+1<<" ("<<*(getUE()+i)<<") : "<<*(getnote()+i)<<"/20"<<endl;
+        affichage = affichage + static_cast<string>("UE")+to_string(i+1)+static_cast<string>(" (" ) + static_cast<string>(*(getUE()+i)) + static_cast<string>(") : ")+to_string(*(getnote()+i))+static_cast<string>("/20\n");
     }
+    return affichage;
 }
 
 void Eleve::newEleve()

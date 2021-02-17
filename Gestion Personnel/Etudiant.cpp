@@ -37,10 +37,9 @@ void Etudiant::setCursus(string leCursus)
 }
 
 //méthodes
-void Etudiant::affiche()
+string Etudiant::affiche()
 {
-    Personne::affiche();
-    cout<<"Cursus: "<<getCursus()<<"\nAnnée actuelle dans le cursus: "<<getAnneeCursus()<<endl;
+    return (Personne::affiche()+static_cast<string>("Cursus: ")+static_cast<string>(getCursus())+static_cast<string>("\nAnnée actuelle dans le cursus: ")+to_string(getAnneeCursus())+static_cast<string>("\n"));
 }
 
 void Etudiant::newEtudiant()

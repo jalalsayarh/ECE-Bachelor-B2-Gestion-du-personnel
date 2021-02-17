@@ -49,7 +49,7 @@ public:
     
     
     //méthodes
-    virtual void affiche();
+    virtual string affiche();
     void newPerson();       //Saisie de toutes les informations d'une personne
 };
 

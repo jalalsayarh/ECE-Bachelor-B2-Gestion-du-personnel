@@ -18,7 +18,7 @@
 class elementListe /* étape 9: partie liste chainée */
 {
 private:
-    Personne *someone;                /* nécéssité d'un pointeur ici pour utiliser le polymorphisme plus tard */
+    Personne *someone=NULL;                /* nécéssité d'un pointeur ici pour utiliser le polymorphisme plus tard */
     elementListe *next=NULL;         /* Pointera sur l'élement suiant; null par défaut*/
     elementListe *previous=NULL;
     

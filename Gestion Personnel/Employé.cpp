@@ -44,10 +44,10 @@ void Employe::setNomDep(string leNomDep)
 
 //methodes
 
-void Employe::affiche() //affichage des informations
+string Employe::affiche() //affichage des informations
 {
-    Personne::affiche();
-    cout<<"Département: "<<getNomDep()<<"\nBureau n°"<<getNumBureau()<<endl;
+    return (Personne::affiche()+static_cast<string>("Département: ")+static_cast<string>(getNomDep())+static_cast<string>("\nBureau n°")+to_string(getNumBureau())+static_cast<string>("\n"));
+    
 }
 
 void Employe::newEmploye() //saisie d'un nouvel employé

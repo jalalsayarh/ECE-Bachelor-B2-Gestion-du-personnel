@@ -53,7 +53,8 @@ void saisie_Liste_Personne(elementListe* start);    /** Saisie d'une liste de pe
 
 
 /* Etae 10*/
-void write(string nomFichier);   /*écriture dans un fichier */
+void write(string nomFichier, Personne* tab[], int nb );   /*écriture dans un fichier */
+void write(string nomFichier, vector<Personne*> *lesGens);
 void read(string nomFichier);    /* fonctions de lecture */
 
 

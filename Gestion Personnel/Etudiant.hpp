@@ -36,7 +36,7 @@ public:
     void setCursus(string leCursus);
     
     //méthodes
-    virtual void affiche();
+    virtual string affiche();
     void newEtudiant();
     
     
