@@ -50,7 +50,10 @@ void recherche_vecteur(vector<Personne*> *lesGens);
 
 
 void saisie_Liste_Personne(elementListe* start);    /** Saisie d'une liste de personne à partir d'un element de la liste donné comme point de départ */
-
+void tri_liste_personne_nom(elementListe* start);
+void tri_liste_personne_prenom(elementListe* start);
+void tri_liste_personne_age(elementListe* start);
+void recherche_liste(elementListe* start);
 
 /* Etae 10*/
 void write(string nomFichier, Personne* tab[], int nb );   /*écriture dans un fichier */

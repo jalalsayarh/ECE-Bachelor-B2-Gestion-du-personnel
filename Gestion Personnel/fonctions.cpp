@@ -642,6 +642,7 @@
 }
 
 
+
 /*15*/void saisie_Liste_Personne(elementListe* start)
 {
     string choixPersonne;
@@ -683,6 +684,27 @@
         intermediaire->setNext(e);
     }
 }
+
+
+void tri_liste_personne_nom(elementListe* start)
+{
+//    elementListe* intermediare=new elementListe();
+//    *intermediare=*start;
+//    elementListe intermediare2=*((*start).getNext());
+//    
+//    if (dynamic_cast<Personne*>(intermediare->getSomeone())->getNom()) {
+//        <#statements#>
+//    }
+    
+}
+void tri_liste_personne_prenom(elementListe* start){}
+void tri_liste_personne_age(elementListe* start){}
+void recherche_liste(elementListe* start){}
+
+
+
+
+
 
 
 

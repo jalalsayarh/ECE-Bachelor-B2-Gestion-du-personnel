@@ -124,7 +124,7 @@ int main(int argc, const char * argv[]) {
                     cout<<"4. Trier le tableau par age.\n";
                     cout<<"5. Rechercher un élément dans le tableau.\n";
                     cout<<"6. Sauvegarder dans un fichier txt.\n";
-                    //cout<<"0. Retour au menu principal.\n";
+                    cout<<"0. Retour au menu principal.\n";
                     
                     int choix;
                     // saisie de la réponse au choix de tri
@@ -156,20 +156,29 @@ int main(int argc, const char * argv[]) {
                             break;
                             
                         case 6: /**Sauvegarde dans un fichier txt*/
-                            write("/Users/jalalsayarh/Desktop/fichertestProjetAutonome.txt",tabEtape4,indiceMax);
-                            cout<<"\n--------------\n";
-                            read("/Users/jalalsayarh/Desktop/fichertestProjetAutonome.txt");
+                        {
+                            string rep=blindage_Saisie_ChoixBinaire("\nAttention ! Si vous continuez le contenu du fichier sera écrasé.\nContinuer ?(oui/non)\n ->", "oui", "non");
+                            
+                            if (rep=="oui") {
+                                write("/Users/jalalsayarh/Desktop/fichertestProjetAutonome.txt",tabEtape4,indiceMax);
+                                cout<<"\n--------------\n";
+                                read("/Users/jalalsayarh/Desktop/fichertestProjetAutonome.txt");
+                            }
                             break;
-                        
+                        }
                             
                         case 0: /** Retuor au menu pricipal*/
-                            
+                            refresh="ok";
                             break;
                             
                         default:
                             break;
                     }
-                    retourMenu=blindage_Saisie_ChoixBinaire("\nRetour au menu précedent (oui/non) ?\n ->", "oui", "non");
+                    if (refresh=="ok")
+                        retourMenu="non";
+                    else
+                        retourMenu=blindage_Saisie_ChoixBinaire("\nRetour au menu précedent (oui/non) ?\n ->", "oui", "non");
+                    
                 }while (retourMenu=="oui");
                 cout<<"--------------------\n"; /* point de repere dans le code */
                 break;
@@ -245,7 +254,8 @@ int main(int argc, const char * argv[]) {
                     {
                         cout<<"\n--------------Test saisie vecteur -------------------------\n";/*point de repere dans                                                                    le code */
                         vector<Personne*> lesGens;
-                                                
+                        bool vecteurVide=0;
+                                            
                         string retourMenu;
                         do{
                             cout<<"\n\n";
@@ -269,12 +279,18 @@ int main(int argc, const char * argv[]) {
                                     saisie_Vecteur_Personne(&lesGens);
                                     break;
                                 case 2: /**Afficher le vecteur */
-                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments";
+                                    if (lesGens.size()==0) {
+                                        cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments\n";
+                                        vecteurVide=1;
+                                    }
                                     else affiche_Vecteur(&lesGens);
                                     break;
                                     
                                 case 3: /**Trier le tableau par vecteur*/
-                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments";
+                                    if (lesGens.size()==0) {
+                                        cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments\n";
+                                        vecteurVide=1;
+                                    }
                                     else
                                     {   tri_vecteur_personne_nom(&lesGens);
                                         affiche_Vecteur(&lesGens);
@@ -282,7 +298,10 @@ int main(int argc, const char * argv[]) {
                                     break;
                                     
                                 case 4: /**Trier le tableau par vecteur*/
-                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments";
+                                    if (lesGens.size()==0) {
+                                        cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments\n";
+                                        vecteurVide=1;
+                                    }
                                     else {
                                         tri_vecteur_personne_prenom(&lesGens);
                                         affiche_Vecteur(&lesGens);
@@ -290,7 +309,10 @@ int main(int argc, const char * argv[]) {
                                     break;
                                     
                                 case 5: /**Trier le vecteur par âge*/
-                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments";
+                                    if (lesGens.size()==0) {
+                                        cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments\n";
+                                        vecteurVide=1;
+                                    }
                                     else {
                                         tri_vecteur_personne_age(&lesGens);
                                         affiche_Vecteur(&lesGens);
@@ -298,7 +320,10 @@ int main(int argc, const char * argv[]) {
                                     break;
                                     
                                 case 6: /**Rechercher un élément dans le vecteur*/
-                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments";
+                                    if (lesGens.size()==0) {
+                                        cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments\n";
+                                        vecteurVide=1;
+                                    }
                                     else recherche_vecteur(&lesGens);
                                     break;
                                     
@@ -317,6 +342,7 @@ int main(int argc, const char * argv[]) {
                                     break;
                             }
                             if (refresh=="ok") retourMenu="non";
+                            else if (vecteurVide) retourMenu="oui";
                             else retourMenu=blindage_Saisie_ChoixBinaire("\nRetour au menu précedent (oui/non) ?\n ->", "oui", "non");
                             
                         }while (retourMenu=="oui");
@@ -330,23 +356,87 @@ int main(int argc, const char * argv[]) {
                                 /* Etape intermediaire avec liste chaînée*/
 
                         cout<<"\n--------------Test saisie liste -------------------------\n";/*point de repere dans                                                                    le code */
-                        
-                        do {
-                            saisie_Liste_Personne(start);
-                            nouveau=blindage_Saisie_ChoixBinaire("\n1-Ajouter une nouvelle personne\n2-afficher la liste\n-> ", "1", "2");
-                        } while (nouveau=="1");
+                        string retourMenu;
+                        do{
+                            cout<<"\n\n";
+                            // proposition des options de tri
+                            cout<<"1. Ajouter un élement à la liste\n";
+                            cout<<"2. Afficher tous les éléments de la liste.\n";
+                            cout<<"3. Trier par noms.\n";
+                            cout<<"4. Trier par prénoms.\n";
+                            cout<<"5. Trier par age.\n";
+                            cout<<"6. Rechercher un élément dans la liste.\n";
+                            cout<<"7. Sauvegarder dans un fichier txt.\n";
+                            cout<<"0. Retour au menu principal.\n";
+                            
+                            int choix;
+                            // saisie de la réponse au choix de tri
+                            cout<<"\nVeuillez faire un choix : \n ->";
+                            cin>>choix;
+
+                            switch (choix) {
+                                case 1: /**Ajout d'un élément*/
+                                    saisie_Liste_Personne(start);
+                                    break;
+                                case 2: /**Afficher la liste */
+                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments\n";
+                                    else start->afficheListe();
+                                    break;
+
+                                case 3: /**Trier la liste par nom*/
+//                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments";
+//                                    else
+//                                    {
+//                                        tri_liste_personne_nom(start);
+//                                    }
+                                    cout<<"\nDésolé, cette fonctionnalité n'est pas encore disponible";
+                                    break;
+
+                                case 4: /**Trier la liste par prenom*/
+//                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments";
+//                                    else {
+//                                        tri_liste_personne_prenom(start);
+//                                    }
+                                    cout<<"\nDésolé, cette fonctionnalité n'est pas encore disponible";
+                                    break;
+
+                                case 5: /**Trier la liste par âge*/
+//                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments";
+//                                    else {
+//                                        tri_liste_personne_age(start);
+//                                    }
+                                    cout<<"\nDésolé, cette fonctionnalité n'est pas encore disponible";
+                                    break;
+
+                                case 6: /**Rechercher un élément dans le vecteur*/
+//                                    if (start==NULL) cout<<"Vecteur vide ! Veuillez d'abord ajouter au moins un éléments";
+//                                    else recherche_liste(start);
+                                    cout<<"\nDésolé, cette fonctionnalité n'est pas encore disponible";
+                                    break;
+
+                                case 7: /**Sauvegarde dans un fichier txt*/
+                                    //write("/Users/jalalsayarh/Desktop/fichertestProjetAutonome.txt", &lesGens);
+                                    read("/Users/jalalsayarh/Desktop/fichertestProjetAutonome.txt");
+                                    break;
 
 
-                        /*
-                            affichage des differents element de la liste à partir de start
-                         */
-                        
-                        cout<<"\n\n---Liste de Personnes que vous avez saisie: \n";
-                        start->afficheListe();
+                                case 0: /** Retuor au menu pricipal*/
+                                    refresh="ok";
+
+                                    break;
+
+                                default:
+                                    break;
+                            }
+                            if (refresh=="ok") retourMenu="non";
+                            else retourMenu=blindage_Saisie_ChoixBinaire("\nRetour au menu précedent (oui/non) ?\n ->", "oui", "non");
+
+                        }while (retourMenu=="oui");
                         cout<<"\n-----------------------FIN LISTE---------------------------------------\n";  /*point de repere dans le code*/
                         
                     }
-                    choixEtape9 = blindage_Saisie_ChoixBinaire("Revenir au menu precedent ? (oui/non)\n ->", "oui", "non");
+                    if (refresh=="ok") choixEtape9="non";
+                    else choixEtape9 = blindage_Saisie_ChoixBinaire("Revenir au menu precedent ? (oui/non)\n ->", "oui", "non");
                     
                 } while(choixEtape9=="oui");
                 break;
@@ -371,8 +461,7 @@ int main(int argc, const char * argv[]) {
         if (refresh=="ok") {
             refresh = "oui";
         }else {
-            cout<<"\n\nRetour au menu principal ? (oui/non)\n ->";
-            cin>>refresh;
+            refresh=blindage_Saisie_ChoixBinaire("\n\nRetour au menu principal ? (oui/non)\n ->", "oui", "non");
         }
         
     } while (refresh=="oui"); /* do ligne 38: */
