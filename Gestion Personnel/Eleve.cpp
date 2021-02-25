@@ -135,6 +135,16 @@ void Eleve::modifNote()
            cout<<"UE"<<i+1<<" ("<<*(getUE()+i)<<") : "<<*(getnote()+i)<<"/20"<<endl;
     }
     
+    /*Modification partie 5 faite par coco : affichage de moyenne*/
+    float moy;
+    for (int i=0; i<getnbrUE(); i++) {
+        moy = moy + *(getnote());
+    }
+    int y = getnbrUE();
+    moy = moy / y;
+    cout<<"\nMoyenne des notes : "<<moy<<endl;
+    // fin de modification
+    
     int choix=blindage_Saisie_ChoixIntervalle("\n[1]-Modifier toutes les notes\n[2]-Modifier une seule note\n ->", 1, 2);
     
     if(choix==1) 
