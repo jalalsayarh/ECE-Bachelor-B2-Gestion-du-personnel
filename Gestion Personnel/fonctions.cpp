@@ -3,7 +3,7 @@
 //  Gestion Personnel
 //
 
-#include <string.h>
+
 #include "fonctions.hpp"
 
 /*                                      RESUME DES FONCTIONS
@@ -60,6 +60,9 @@
 
 
 
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
 /*1*/string blindage_Saisie_ChoixBinaire(string phrase, string choix1,string choix2)
 {
     string choix;
@@ -80,6 +83,8 @@
     }
     return choix;
 }
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 /*2*/int blindage_Saisie_ChoixIntervalle(string phrase, int borne1 ,int borne2)
 {
@@ -111,7 +116,7 @@
 }
 
 
-
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 /*3*/void afficheTab_Personne(Personne* tab[],int nombre) /* étape 4: partie affichage d'un tableau via fonctions */
 {
@@ -129,6 +134,8 @@
     }
 }
 
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
 
 /*4*/ void saisieTab_Personne(Personne* tab[],int nombre)
 
@@ -137,9 +144,9 @@
     string choixPersonne;
     for (int i=0; i<nombre; i++) {
         do{
-            cout<<"\nSaisir [1] pour ajouter un(e) Etudiant(e)\nSaisir [2] pour ajouter un(e) Employé(e)\n->";
+            cout<<"\nSaisir [1] pour ajouter un(e) Etudiant(e)\nSaisir [2] pour ajouter un(e) Employé(e)\nSaisir [3] pour ajouter un(e) Elève(e)\n->";
             cin>>choixPersonne;
-        }while ((choixPersonne!="1")&&(choixPersonne!="2"));
+        }while ((choixPersonne!="1")&&(choixPersonne!="2")&&(choixPersonne!="3"));
 
         if (choixPersonne=="1") {
             Etudiant* LeEtudiant= new Etudiant();
@@ -147,15 +154,23 @@
             etu->newEtudiant();
             *(tab+i)=LeEtudiant;
         }
-        else{
+        else if (choixPersonne=="2"){
             Employe *LeEmploye= new Employe();
             auto *emp = dynamic_cast<Employe*>(LeEmploye);
             emp->newEmploye();
             *(tab+i)=LeEmploye;
         }
+        else{
+            Eleve *lEleve= new Eleve();
+            auto *el = dynamic_cast<Eleve*>(lEleve);
+            el->newEleve();
+            *(tab+i)=lEleve;
+        }
     }
     //cout<<"---Fin de la fonction---\n";   /* Point de repère*/
 }
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 
 /*5*/void tri_tab_personne_nom(Personne* tab[], int nb)
@@ -180,6 +195,10 @@
     
 }// fin
 
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
+
 /*6*/void tri_tab_personne_prenom(Personne* tab[], int nb)
 {
     Personne* intermediaire=new Personne();
@@ -203,6 +222,7 @@
 }// fin
 
 
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 
 /*7*/void tri_tab_personne_age(Personne* tab[], int nb)
@@ -227,6 +247,59 @@
     
 }// fin
 
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
+
+void affiche_etudiant(Personne* tab[],int nb)
+{
+    int compteur=0;
+    for (int i=0; i<nb; i++)
+    {
+        if ((typeid(**(tab+i)).name())==typeid(Etudiant).name())
+        {
+            compteur++;
+            cout<< dynamic_cast<Personne*>(*(tab+i))->affiche();
+        }
+    }
+    if (compteur==0) {
+        cout<<"Il n'y a pas d'étudiants dans le tableau"<<endl;
+    }
+}
+
+    
+void affiche_employe(Personne* tab[],int nb)
+{
+    int compteur=0;
+    for (int i=0; i<nb; i++)
+    {
+        if ((typeid(**(tab+i)).name())==typeid(Employe).name())
+        {
+            compteur++;
+            cout<< dynamic_cast<Personne*>(*(tab+i))->affiche();
+        }
+    }
+    if (compteur==0) {
+        cout<<"Il n'y a pas d'employés dans le tableau"<<endl;
+    }
+}
+
+void affiche_eleve(Personne* tab[],int nb)
+{
+    int compteur=0;
+    for (int i=0; i<nb; i++)
+    {
+        if ((typeid(**(tab+i)).name())==typeid(Eleve).name())
+        {
+            compteur++;
+            cout<< dynamic_cast<Personne*>(*(tab+i))->affiche();
+        }
+    }
+    if (compteur==0) {
+        cout<<"Il n'y a pas d'élèves dans le tableau"<<endl;
+    }
+}
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 
 /*8*/void recherche_personne_in_tab(Personne* tab[],int nb)
@@ -255,7 +328,7 @@
                     
                     for (int i=0; i<nb; i++)
                     {
-                        if ((*(tab+i))->getNom()==rechercheNom)
+                        if ( (*(tab+i))->getNom()==rechercheNom)
                         {
                             compteur++;
                             cout<<"-------------------------\n";
@@ -279,7 +352,7 @@
                     
                     for (int i=0; i<nb; i++)
                     {
-                        if ((*(tab+i))->getPrenom()==recherchePrenom)
+                        if ( (*(tab+i))->getPrenom()==recherchePrenom)
                         {
                             compteur++;
                             cout<<"-------------------------\n";
@@ -302,7 +375,7 @@
                     
                     for (int i=0; i<nb; i++)
                     {
-                        if ((*(tab+i))->getEmail()==rechercheMail)
+                        if ( (*(tab+i))->getEmail()==rechercheMail)
                         {
                             compteur++;
                             cout<<"-------------------------\n";
@@ -325,7 +398,7 @@
                     
                     for (int i=0; i<nb; i++)
                     {
-                        if ((*(tab+i))->getAge()==rechercheAge)
+                        if ( (*(tab+i))->getAge()==rechercheAge)
                         {
                             compteur++;
                             cout<<"-------------------------\n";
@@ -341,17 +414,25 @@
                 }
                     
                 case 5: /**Rechercher une personne*/
-//                {
-//                    Personne p;
-//                    p.newPerson();
-//                    for (int i=0; i<nb; i++)
-//                    {
-//                        if (p==(**(tab+i)))
-//                            (*tab+i)->affiche();
-//                        else
-//                            cout<<"\nAucun élément ne correspond à votre recherche";
-//                    }
-//                }
+                {
+                    Personne p;
+                    int compteur=0;
+                    p.newPerson();
+                    for (int i=0; i<nb; i++)
+                    {
+                        if ( p==(**(tab+i)) )
+                        {
+                            compteur++;
+                            cout<<"-------------------------\n";
+                            cout<<(*(tab+i))->affiche();
+                        }
+                    }
+                    if (compteur==0)
+                        cout<<"\n Désolé; Aucun élément ne correspond à votre recherche\n";
+                    else
+                        cout<<"-------------------------\n";
+                    
+                }
                     break;
                     
                 default:
@@ -370,7 +451,7 @@
 }
 
 
-
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 
 
@@ -379,7 +460,10 @@
     Personne *intermediaire=new Personne();
     string choixPersonne;
     
-    choixPersonne=blindage_Saisie_ChoixBinaire("\nSaisir [1] pour ajouter un(e) Etudiant(e)\nSaisir [2] pour ajouter un(e) Employé(e)\n->","1","2");
+    do{
+        cout<<"\nSaisir [1] pour ajouter un(e) Etudiant(e)\nSaisir [2] pour ajouter un(e) Employé(e)\nSaisir [3] pour ajouter un(e) Elève(e)\n->";
+        cin>>choixPersonne;
+    }while ((choixPersonne!="1")&&(choixPersonne!="2")&&(choixPersonne!="3"));
 
     if (choixPersonne=="1")
     {
@@ -402,17 +486,25 @@
         intermediaire=LeEtudiant;
     }
 
-    else
+    else if (choixPersonne=="2")
     {
         Employe *LeEmploye= new Employe();
         auto *emp = dynamic_cast<Employe*>(LeEmploye);
         emp->newEmploye();
         intermediaire=LeEmploye;
     }
+    else{
+        Eleve *lEleve= new Eleve();
+        auto *el = dynamic_cast<Eleve*>(lEleve);
+        el->newEleve();
+        intermediaire=lEleve;
+    }
     
     lesGens->push_back(intermediaire);
 }
 
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 
 /*10*/void affiche_Vecteur(vector<Personne*> *lesGens)
@@ -422,6 +514,60 @@
         cout<<gens->affiche();
     }
 }
+
+
+void affiche_etudiant(vector<Personne*> *lesGens)
+{
+    int compteur=0;
+    for (Personne* gens : *lesGens)
+    {
+        if ((typeid(*gens).name())==typeid(Etudiant).name())
+        {
+            compteur++;
+            cout<<gens->affiche();
+        }
+    }
+    
+    if (compteur==0) {
+        cout<<"Il n'y a pas d'étudiants dans le tableau"<<endl;
+    }
+}
+
+void affiche_employe(vector<Personne*> *lesGens)
+{
+    int compteur=0;
+    for (Personne* gens : *lesGens)
+    {
+        if ((typeid(*gens).name())==typeid(Employe).name())
+        {
+            compteur++;
+            cout<<gens->affiche();
+        }
+    }
+    
+    if (compteur==0) {
+        cout<<"Il n'y a pas d'employés dans le tableau"<<endl;
+    }
+}
+
+void affiche_eleve(vector<Personne*> *lesGens)
+{
+    int compteur=0;
+    for (Personne* gens : *lesGens)
+    {
+        if ((typeid(*gens).name())==typeid(Eleve).name())
+        {
+            compteur++;
+            cout<<gens->affiche();
+        }
+    }
+    
+    if (compteur==0) {
+        cout<<"Il n'y a pas d'élèves dans le tableau"<<endl;
+    }
+}
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 
 /*11*/void tri_vecteur_personne_nom(vector<Personne*> *lesGens)
@@ -447,6 +593,10 @@
     }// fin double boucle imbriquée
     
 }
+
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
 
 /*12*/void tri_vecteur_personne_prenom(vector<Personne*> *lesGens)
 {
@@ -474,6 +624,10 @@
     }
 }
 
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
+
 /*13*/void tri_vecteur_personne_age(vector<Personne*> *lesGens)
 {
     {
@@ -499,6 +653,10 @@
         
     }
 }
+
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
 
 /*14*/void recherche_vecteur(vector<Personne*> *lesGens)
 {
@@ -612,17 +770,17 @@
                 }
                     
                 case 5: /**Rechercher une personne*/
-//                {
-//                    Personne p;
-//                    p.newPerson();
-//                    for (Personne* gens : *lesGens)
-//                    {
-//                        if (p==*gens)
-//                            gens->affiche();
-//                        else
-//                            cout<<"\nAucun élément ne correspond à votre recherche";
-//                    }
-//                }
+                {
+                    Personne p;
+                    p.newPerson();
+                    for (Personne* gens : *lesGens)
+                    {
+                        if (p==*gens)
+                            gens->affiche();
+                        else
+                            cout<<"\nAucun élément ne correspond à votre recherche";
+                    }
+                }
                     break;
                     
                 default:
@@ -642,6 +800,8 @@
 }
 
 
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
 
 /*15*/void saisie_Liste_Personne(elementListe* start)
 {
@@ -651,9 +811,9 @@
     
     
     do{
-        cout<<"\nSaisir [1] pour ajouter un(e) Etudiant(e)\nSaisir [2] pour ajouter un(e) Employé(e)\n->";
+        cout<<"\nSaisir [1] pour ajouter un(e) Etudiant(e)\nSaisir [2] pour ajouter un(e) Employé(e)\nSaisir [3] pour ajouter un(e) Elève(e)\n->";
         cin>>choixPersonne;
-    }while ((choixPersonne!="1")&&(choixPersonne!="2"));
+    }while ((choixPersonne!="1")&&(choixPersonne!="2")&&(choixPersonne!="3"));
 
     if (choixPersonne=="1")
     {
@@ -663,13 +823,19 @@
         e->setSomeone(LeEtudiant);
     }
 
-    else
+    else if(choixPersonne=="2")
     {
         Employe *LeEmploye= new Employe();
         auto *emp = dynamic_cast<Employe*>(LeEmploye);
         emp->newEmploye();
         //lesGens.push_back(LeEmploye);
         e->setSomeone(LeEmploye);
+    }
+    else{
+        Eleve *lEleve= new Eleve();
+        auto *el = dynamic_cast<Eleve*>(lEleve);
+        el->newEleve();
+        e->setSomeone(lEleve);
     }
     
     if (start->getSomeone()==NULL) { // si il n'y pas encore d'element dans la liste
@@ -680,10 +846,13 @@
        {
            intermediaire = (intermediaire->getNext()); /* On va jusqu'au dernier élement */
        }
-        e->setPrevious(intermediaire);
+        //e->setPrevious(intermediaire);
         intermediaire->setNext(e);
     }
 }
+
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 
 void tri_liste_personne_nom(elementListe* start)
@@ -693,19 +862,20 @@ void tri_liste_personne_nom(elementListe* start)
 //    elementListe intermediare2=*((*start).getNext());
 //    
 //    if (dynamic_cast<Personne*>(intermediare->getSomeone())->getNom()) {
-//        <#statements#>
+//        =
 //    }
-    
+    cout<<"\nDésolé, cette fonctionnalité n'est pas encore disponible";
 }
-void tri_liste_personne_prenom(elementListe* start){}
-void tri_liste_personne_age(elementListe* start){}
-void recherche_liste(elementListe* start){}
+void tri_liste_personne_prenom(elementListe* start){cout<<"\nDésolé, cette fonctionnalité n'est pas encore disponible";}
+void tri_liste_personne_age(elementListe* start){cout<<"\nDésolé, cette fonctionnalité n'est pas encore disponible";}
+void recherche_liste(elementListe* start){cout<<"\nDésolé, cette fonctionnalité n'est pas encore disponible";}
 
 
 
 
 
 
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 
 /*16*/void write(string nomFichier,Personne* tab[], int nb )
@@ -715,6 +885,7 @@ void recherche_liste(elementListe* start){}
     Fichier .txt
     Ecriture dans un fichier
     */
+
       
     // faire une saisie de chemin par l'utilisateur
     // préciser à l'utilisateur qu'il doit avoir un fichier crée au préalable
@@ -745,6 +916,8 @@ void recherche_liste(elementListe* start){}
         
 }
 
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
 void write(string nomFichier, vector<Personne*> *lesGens)
 {
     string const monFichier(nomFichier);
@@ -772,28 +945,141 @@ void write(string nomFichier, vector<Personne*> *lesGens)
     }
 }
 
-/*17*/void read(string nomFichier)
+
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
+
+void write(string nomFichier, elementListe *start)
 {
-    cout<<"\n----fonction read-----\n\n";
-    // Lecture d'un fichier
-    ifstream fichier(nomFichier);
-
-    if(fichier) // L'ouverture s'est bien passé, on peut donc lire le fichier dans la console
+    string const monFichier(nomFichier);
+    ofstream monFlux(monFichier.c_str());
+    
+    // Déclaration d'un flux qui permet d'écrire dans un fichier
+    if(monFlux) // on teste pour voir si tout est ok
     {
-        string ligne; //Une variable pour stocker les lignes lues
-
-        while(getline(fichier, ligne)) //Tant qu'on n'est pas à la fin, on lit
-        {
-            cout << ligne << endl;
+        cout<<"\n Enregistrement dans le fichier "<<nomFichier<<" en cours..."<<endl;
+        // modifier l'écriture pour pouvoir écrire dans le fichier les informations relatives
+        elementListe *intermerdiaire = new elementListe();
+        intermerdiaire=start;
+        
+        monFlux<< "\n---------------------------\n";
+        monFlux<< intermerdiaire->getSomeone()->affiche();
+        
+        while (intermerdiaire->getNext()!=NULL) {
+            intermerdiaire=intermerdiaire->getNext();
+            monFlux<< "\n---------------------------\n";
+            monFlux<< intermerdiaire->getSomeone()->affiche();
         }
+        
+    
+        monFlux<<"\n---------------------------\n";
+        
+        cout<<"\nEnregistrement terminé !"<<endl;
     }
     else // en cas d'erreur : pas de fichier, chemin incorrect ...
     {
-        cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+        cout << "ERREUR: Impossible d'ouvrir le fichier." << endl;
     }
 }
 
-//bool operator==(Personne a, Personne b)
-//{
-//    return (a.getPrenom() == b.getPrenom() && a.getNom() == b.getNom() && a.getAge() == b.getAge());
-//}
+// ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
+
+/*17*/void read()
+{
+    string nomFichier;
+    do {
+        cout<<"\n Entrez le nom du fichier à lire (ou saisir 0 pour annuler l'opération)\n -> ";
+        cin>>nomFichier;
+        
+        ifstream fichier(nomFichier);
+
+        if(fichier) // L'ouverture s'est bien passé, on peut donc lire le fichier dans la console
+        {
+            string ligne; //Une variable pour stocker les lignes lues
+
+            while(getline(fichier, ligne)) //Tant qu'on n'est pas à la fin, on lit
+            {
+                cout << ligne << endl;
+            }
+        }
+        else if (nomFichier!="0") // en cas d'erreur : pas de fichier, chemin incorrect ...
+        {
+            cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+        }
+        else cout << "Annulation en cours..."<<endl;
+    } while ((nomFichier!="0"));
+}
+
+
+
+bool connexion_bdd(MYSQL*mysql)
+{
+//    struct connect {
+//        string login;
+//        string mdp;
+//    };
+//    vector<connect> connect;
+    
+    string login;
+    string mdp;
+    
+   
+    mysql_options(mysql,MYSQL_READ_DEFAULT_GROUP,"option");
+    if(mysql_real_connect(mysql,"localhost:8888" ,"root","root","scola",0,NULL,0))
+    {
+        cout<<"----------------CONNEXION----------------"<<endl;
+        cout<<"\nlogin: ";
+        cin>>login;
+        cout<<"\nmot de passe: ";
+        cin>>mdp;
+//        char requete[200];
+//        strcpy(requete, "SELECT FROM users where login='");
+//
+//        strcat(requete,static_cast<char*>(login));
+//        strcat(requete,"' and password='");
+//        strcat(requete,static_cast<char*>(mdp));
+//        strcat(requete,"'");
+
+        //RequÍte qui sÈlectionne tout dans ma table scores
+        mysql_query(mysql, "SELECT * FROM users");
+        //DÈclaration des pointeurs de structure
+        MYSQL_RES *result = NULL;
+        MYSQL_ROW row;
+        unsigned int num_champs = 0;
+        
+        //On met le jeu de rÈsultat dans le pointeur result
+        result = mysql_use_result(mysql);
+        //On rÈcupËre le nombre de champs
+        num_champs = mysql_num_fields(result);
+        //on stock les valeurs de la ligne choisie
+        while ((row = mysql_fetch_row(result)))
+        {
+            //On déclare un pointeur long non signé pour y stocker la taille des valeurs
+            unsigned long *lengths;
+            //On stocke ces tailles dans le pointeur
+            lengths = mysql_fetch_lengths(result);
+
+            //On fait une boucle pour avoir la valeur de chaque champs
+//            struct connect id;
+//            id.login=row[1];
+//            id.mdp=row[2];
+//
+//            connect.push_back(id);
+            if ( (login==row[1]) && (mdp==row[2]) )
+            {
+                //LibÈration du jeu de rÈsultat
+                mysql_free_result(result);
+                return true;
+            }
+        }
+        cout<<"erreur de login ou de mot de passe"<<endl;
+        mysql_free_result(result);
+        return false;
+    }
+    else
+    {
+        cout<<"\nUne erreur s'est produite lors de la connexion à la base de donnée !"<<endl;
+        cout<<mysql_error(mysql);
+        return false;
+    }
+}

@@ -24,8 +24,8 @@ class Eleve:public Etudiant
 private:
     
     int nbrUE;
-    float note[10];//vector<float> notes;
-    string UE[10];
+    float *note=NULL;//[nbMaxUe]= {21, 21, 21, 21, 21, 21, 21, 21, 21, 21};//vector<float> notes;
+    string *UE=new string();//[nbMaxUe];
 
 //prototypes des méthodes
 public:
@@ -43,11 +43,12 @@ public:
     
     //setters
     void setnbrUE(int nbUe);
-    void setnote();
+    void setnote(float* lesNotes);
     void setUE(string* lUE);
     
     //méthodes
-    /*virtual*/ string affiche();
+    virtual string affiche();
+    void saisieNote();
     void newEleve();
     void modifNote();
 

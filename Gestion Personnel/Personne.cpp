@@ -112,7 +112,15 @@ void Personne::newPerson()
 }
 
 
-
+bool Personne::operator==(const Personne &source)
+{
+    bool result = false;
+    if(age == source.age && !prenom.compare(source.prenom) &&
+    !email.compare(source.email) && !nom.compare(source.nom)){
+        result = true;
+    }
+    return result;
+}
 
 //Destructeur
 //Personne::~Personne(){}

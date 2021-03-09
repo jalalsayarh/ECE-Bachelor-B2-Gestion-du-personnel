@@ -51,6 +51,7 @@ public:
     //méthodes
     virtual string affiche();
     void newPerson();       //Saisie de toutes les informations d'une personne
+    bool operator==(const Personne &);
 };
 
 

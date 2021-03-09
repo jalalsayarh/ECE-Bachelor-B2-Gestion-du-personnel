@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F1BFE7E25F7B2E900409118 /* client_plugin.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2B25F17A3B003086E7 /* client_plugin.h */; };
+		4F1BFE7F25F7B2E900409118 /* plugin_auth_common.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2425F17A3B003086E7 /* plugin_auth_common.h */; };
+		4F1BFE8025F7B2E900409118 /* udf_registration_types.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2525F17A3B003086E7 /* udf_registration_types.h */; };
+		4F1BFE8125F7B2E900409118 /* mysql_com.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2925F17A3B003086E7 /* mysql_com.h */; };
+		4F1BFE8225F7B2E900409118 /* mysql_time.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2A25F17A3B003086E7 /* mysql_time.h */; };
+		4F1BFE8325F7B2E900409118 /* mysql_version.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2725F17A3B003086E7 /* mysql_version.h */; };
+		4F1BFE8425F7B2E900409118 /* mysql.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2825F17A3B003086E7 /* mysql.h */; };
+		4F1BFE8525F7B2E900409118 /* mysqld_error.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2625F17A3B003086E7 /* mysqld_error.h */; };
+		4F1BFE8725F7B2EF00409118 /* errmsg.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2F25F17A41003086E7 /* errmsg.h */; };
+		4F1BFE8825F7B2EF00409118 /* field_types.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2E25F17A41003086E7 /* field_types.h */; };
+		4F1BFE8925F7B2EF00409118 /* my_command.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2C25F17A41003086E7 /* my_command.h */; };
+		4F1BFE8A25F7B2EF00409118 /* my_compress.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A2D25F17A41003086E7 /* my_compress.h */; };
+		4F1BFE8B25F7B2EF00409118 /* my_list.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A3025F17A41003086E7 /* my_list.h */; };
+		4F1BFE8D25F7B67900409118 /* libcrypto.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A1925F06390003086E7 /* libcrypto.1.1.dylib */; };
+		4F1BFE8E25F7B67E00409118 /* libmysqlclient.21.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A1A25F06390003086E7 /* libmysqlclient.21.dylib */; };
+		4F1BFE8F25F7B68200409118 /* libssl.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5A0A1825F06390003086E7 /* libssl.1.1.dylib */; };
 		4F4A837825D2991E00248B28 /* elementListe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A837725D2991E00248B28 /* elementListe.cpp */; };
 		4F50F08C25B5BB55000AB9FB /* fonctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F50F08A25B5BB54000AB9FB /* fonctions.cpp */; };
 		4F61512F25823B7700B1EA55 /* Eleve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F61512D25823B7700B1EA55 /* Eleve.cpp */; };
@@ -29,10 +45,45 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F1BFE7D25F7B2BE00409118 /* Gestion Personnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Gestion Personnel.entitlements"; sourceTree = "<group>"; };
 		4F4A837625D2990F00248B28 /* elementListe.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = elementListe.hpp; sourceTree = "<group>"; };
 		4F4A837725D2991E00248B28 /* elementListe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = elementListe.cpp; sourceTree = "<group>"; };
 		4F50F08A25B5BB54000AB9FB /* fonctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fonctions.cpp; sourceTree = "<group>"; };
 		4F50F08B25B5BB54000AB9FB /* fonctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fonctions.hpp; sourceTree = "<group>"; };
+		4F5A09F125F044EE003086E7 /* gestion_produits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gestion_produits.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/gestion_produits.h"; sourceTree = "<group>"; };
+		4F5A09F225F044EE003086E7 /* mysql.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysql.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/mysql.h"; sourceTree = "<group>"; };
+		4F5A09F325F044EE003086E7 /* plugin_auth_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = plugin_auth_common.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/plugin_auth_common.h"; sourceTree = "<group>"; };
+		4F5A09F425F044EE003086E7 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = main.c; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/main.c"; sourceTree = "<group>"; };
+		4F5A09F525F044EE003086E7 /* gestion_fournisseurs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gestion_fournisseurs.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/gestion_fournisseurs.h"; sourceTree = "<group>"; };
+		4F5A09F625F044EE003086E7 /* field_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = field_types.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/field_types.h"; sourceTree = "<group>"; };
+		4F5A09F725F044EE003086E7 /* my_list.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = my_list.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/my_list.h"; sourceTree = "<group>"; };
+		4F5A09F825F044EE003086E7 /* my_command.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = my_command.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/my_command.h"; sourceTree = "<group>"; };
+		4F5A09F925F044EF003086E7 /* udf_registration_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = udf_registration_types.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/udf_registration_types.h"; sourceTree = "<group>"; };
+		4F5A09FA25F044EF003086E7 /* errmsg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = errmsg.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/errmsg.h"; sourceTree = "<group>"; };
+		4F5A09FB25F044EF003086E7 /* gestion_fournisseurs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = gestion_fournisseurs.c; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/gestion_fournisseurs.c"; sourceTree = "<group>"; };
+		4F5A09FC25F044EF003086E7 /* my_compress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = my_compress.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/my_compress.h"; sourceTree = "<group>"; };
+		4F5A09FD25F044EF003086E7 /* mysql_com.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysql_com.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/mysql_com.h"; sourceTree = "<group>"; };
+		4F5A09FE25F044EF003086E7 /* mysql_time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysql_time.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/mysql_time.h"; sourceTree = "<group>"; };
+		4F5A09FF25F044EF003086E7 /* gestion_produits.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = gestion_produits.c; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/gestion_produits.c"; sourceTree = "<group>"; };
+		4F5A0A0025F044EF003086E7 /* client_plugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = client_plugin.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/client_plugin.h"; sourceTree = "<group>"; };
+		4F5A0A0125F044EF003086E7 /* mysql_version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysql_version.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/mysql_version.h"; sourceTree = "<group>"; };
+		4F5A0A0225F044EF003086E7 /* mysqld_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysqld_error.h; path = "../../../../Downloads/Projet C Corentin Petit - Jalal Sayarh/test1/test1/mysqld_error.h"; sourceTree = "<group>"; };
+		4F5A0A1825F06390003086E7 /* libssl.1.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.1.1.dylib; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/lib/libssl.1.1.dylib"; sourceTree = "<group>"; };
+		4F5A0A1925F06390003086E7 /* libcrypto.1.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.1.1.dylib; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/lib/libcrypto.1.1.dylib"; sourceTree = "<group>"; };
+		4F5A0A1A25F06390003086E7 /* libmysqlclient.21.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmysqlclient.21.dylib; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/lib/libmysqlclient.21.dylib"; sourceTree = "<group>"; };
+		4F5A0A2425F17A3B003086E7 /* plugin_auth_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = plugin_auth_common.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/mysql/plugin_auth_common.h"; sourceTree = "<group>"; };
+		4F5A0A2525F17A3B003086E7 /* udf_registration_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = udf_registration_types.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/mysql/udf_registration_types.h"; sourceTree = "<group>"; };
+		4F5A0A2625F17A3B003086E7 /* mysqld_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysqld_error.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/mysqld_error.h"; sourceTree = "<group>"; };
+		4F5A0A2725F17A3B003086E7 /* mysql_version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysql_version.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/mysql_version.h"; sourceTree = "<group>"; };
+		4F5A0A2825F17A3B003086E7 /* mysql.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysql.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/mysql.h"; sourceTree = "<group>"; };
+		4F5A0A2925F17A3B003086E7 /* mysql_com.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysql_com.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/mysql_com.h"; sourceTree = "<group>"; };
+		4F5A0A2A25F17A3B003086E7 /* mysql_time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mysql_time.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/mysql_time.h"; sourceTree = "<group>"; };
+		4F5A0A2B25F17A3B003086E7 /* client_plugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = client_plugin.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/mysql/client_plugin.h"; sourceTree = "<group>"; };
+		4F5A0A2C25F17A41003086E7 /* my_command.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = my_command.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/my_command.h"; sourceTree = "<group>"; };
+		4F5A0A2D25F17A41003086E7 /* my_compress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = my_compress.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/my_compress.h"; sourceTree = "<group>"; };
+		4F5A0A2E25F17A41003086E7 /* field_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = field_types.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/field_types.h"; sourceTree = "<group>"; };
+		4F5A0A2F25F17A41003086E7 /* errmsg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = errmsg.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/errmsg.h"; sourceTree = "<group>"; };
+		4F5A0A3025F17A41003086E7 /* my_list.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = my_list.h; path = "../../../../../../usr/local/Cellar/mysql-client/8.0.23/include/mysql/my_list.h"; sourceTree = "<group>"; };
 		4F61512D25823B7700B1EA55 /* Eleve.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Eleve.cpp; sourceTree = "<group>"; };
 		4F61512E25823B7700B1EA55 /* Eleve.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Eleve.hpp; sourceTree = "<group>"; };
 		4F715307256CE39B00C7AB4A /* Gestion Personnel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Gestion Personnel"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,17 +101,75 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F1BFE7E25F7B2E900409118 /* client_plugin.h in Frameworks */,
+				4F1BFE7F25F7B2E900409118 /* plugin_auth_common.h in Frameworks */,
+				4F1BFE8025F7B2E900409118 /* udf_registration_types.h in Frameworks */,
+				4F1BFE8725F7B2EF00409118 /* errmsg.h in Frameworks */,
+				4F1BFE8825F7B2EF00409118 /* field_types.h in Frameworks */,
+				4F1BFE8925F7B2EF00409118 /* my_command.h in Frameworks */,
+				4F1BFE8A25F7B2EF00409118 /* my_compress.h in Frameworks */,
+				4F1BFE8D25F7B67900409118 /* libcrypto.1.1.dylib in Frameworks */,
+				4F1BFE8B25F7B2EF00409118 /* my_list.h in Frameworks */,
+				4F1BFE8F25F7B68200409118 /* libssl.1.1.dylib in Frameworks */,
+				4F1BFE8125F7B2E900409118 /* mysql_com.h in Frameworks */,
+				4F1BFE8E25F7B67E00409118 /* libmysqlclient.21.dylib in Frameworks */,
+				4F1BFE8225F7B2E900409118 /* mysql_time.h in Frameworks */,
+				4F1BFE8325F7B2E900409118 /* mysql_version.h in Frameworks */,
+				4F1BFE8425F7B2E900409118 /* mysql.h in Frameworks */,
+				4F1BFE8525F7B2E900409118 /* mysqld_error.h in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F5A09F025F044EE003086E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F5A0A2F25F17A41003086E7 /* errmsg.h */,
+				4F5A0A2E25F17A41003086E7 /* field_types.h */,
+				4F5A0A2C25F17A41003086E7 /* my_command.h */,
+				4F5A0A2D25F17A41003086E7 /* my_compress.h */,
+				4F5A0A3025F17A41003086E7 /* my_list.h */,
+				4F5A0A2B25F17A3B003086E7 /* client_plugin.h */,
+				4F5A0A2925F17A3B003086E7 /* mysql_com.h */,
+				4F5A0A2A25F17A3B003086E7 /* mysql_time.h */,
+				4F5A0A2725F17A3B003086E7 /* mysql_version.h */,
+				4F5A0A2825F17A3B003086E7 /* mysql.h */,
+				4F5A0A2625F17A3B003086E7 /* mysqld_error.h */,
+				4F5A0A2425F17A3B003086E7 /* plugin_auth_common.h */,
+				4F5A0A2525F17A3B003086E7 /* udf_registration_types.h */,
+				4F5A0A1925F06390003086E7 /* libcrypto.1.1.dylib */,
+				4F5A0A1A25F06390003086E7 /* libmysqlclient.21.dylib */,
+				4F5A0A1825F06390003086E7 /* libssl.1.1.dylib */,
+				4F5A0A0025F044EF003086E7 /* client_plugin.h */,
+				4F5A09FA25F044EF003086E7 /* errmsg.h */,
+				4F5A09F625F044EE003086E7 /* field_types.h */,
+				4F5A09FB25F044EF003086E7 /* gestion_fournisseurs.c */,
+				4F5A09F525F044EE003086E7 /* gestion_fournisseurs.h */,
+				4F5A09FF25F044EF003086E7 /* gestion_produits.c */,
+				4F5A09F125F044EE003086E7 /* gestion_produits.h */,
+				4F5A09F425F044EE003086E7 /* main.c */,
+				4F5A09F825F044EE003086E7 /* my_command.h */,
+				4F5A09FC25F044EF003086E7 /* my_compress.h */,
+				4F5A09F725F044EE003086E7 /* my_list.h */,
+				4F5A09FD25F044EF003086E7 /* mysql_com.h */,
+				4F5A09FE25F044EF003086E7 /* mysql_time.h */,
+				4F5A0A0125F044EF003086E7 /* mysql_version.h */,
+				4F5A09F225F044EE003086E7 /* mysql.h */,
+				4F5A0A0225F044EF003086E7 /* mysqld_error.h */,
+				4F5A09F325F044EE003086E7 /* plugin_auth_common.h */,
+				4F5A09F925F044EF003086E7 /* udf_registration_types.h */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4F7152FE256CE39B00C7AB4A = {
 			isa = PBXGroup;
 			children = (
 				4F715309256CE39B00C7AB4A /* Gestion Personnel */,
 				4F715308256CE39B00C7AB4A /* Products */,
+				4F5A09F025F044EE003086E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +184,7 @@
 		4F715309256CE39B00C7AB4A /* Gestion Personnel */ = {
 			isa = PBXGroup;
 			children = (
+				4F1BFE7D25F7B2BE00409118 /* Gestion Personnel.entitlements */,
 				4F71530A256CE39B00C7AB4A /* main.cpp */,
 				4F50F08A25B5BB54000AB9FB /* fonctions.cpp */,
 				4F50F08B25B5BB54000AB9FB /* fonctions.hpp */,
@@ -214,7 +324,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -269,7 +381,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -280,10 +394,16 @@
 		4F71530F256CE39B00C7AB4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Gestion Personnel/Gestion Personnel.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W84U84NU2S;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/usr/local/Cellar/mysql-client/8.0.23/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -291,10 +411,16 @@
 		4F715310256CE39B00C7AB4A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Gestion Personnel/Gestion Personnel.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W84U84NU2S;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/usr/local/Cellar/mysql-client/8.0.23/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

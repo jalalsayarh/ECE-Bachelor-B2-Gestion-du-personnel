@@ -13,7 +13,7 @@ elementListe::elementListe(){}  /*constructeur par defaut*/
 elementListe::~elementListe(){} 
 
 
-/* Définition des Setters*/
+/* Implémentation des Setters*/
 void elementListe::setSomeone(Personne* p)   {  someone=p;  }
 
 void elementListe::setNext(elementListe* e)  {  next=e;   }
@@ -21,8 +21,8 @@ void elementListe::setNext(elementListe* e)  {  next=e;   }
 void elementListe::setPrevious(elementListe* e){ previous=e;}
 
 
-/* Définition des Getters*/
-Personne* elementListe::getSomeone()    { return someone;  }
+/* Implémentation des Getters*/
+Personne* elementListe::getSomeone()    { return &(*someone);  }
 
 elementListe* elementListe::getNext()   {  return next;   }
 

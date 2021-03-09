@@ -36,7 +36,7 @@ public:
     void setNomDep(string leNomDep);
     
     //méthodes
-    string affiche();
+    virtual string affiche();
     void newEmploye();
 };
 
