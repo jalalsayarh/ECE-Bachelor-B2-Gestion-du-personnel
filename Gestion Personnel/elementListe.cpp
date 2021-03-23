@@ -10,7 +10,11 @@
 
 
 elementListe::elementListe(){}  /*constructeur par defaut*/
-elementListe::~elementListe(){} 
+elementListe::~elementListe(){
+    delete someone;
+    delete next;
+    delete previous;
+}
 
 
 /* Implémentation des Setters*/

@@ -51,6 +51,7 @@ public:
     void saisieNote();
     void newEleve();
     void modifNote();
+    float moyenneNote();
 
 };
 

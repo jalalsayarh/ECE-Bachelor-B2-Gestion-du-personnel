@@ -49,7 +49,7 @@ void Etudiant::newEtudiant()
     cout<<"\n Saisissez le cursus de l'étudiant : ";
     cin.clear();
     cin.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
-    getline(cin, cursus); // on veux toute la chaine si jamais il y a un espace saisi
+    getline(cin,cursus); // on veux toute la chaine si jamais il y a un espace saisi
     
     cout<<"\n Saisissez l'année actuelle dans le cursus : ";
     while(!(cin >> anneeActuelle) || anneeActuelle < 1 || anneeActuelle > 5) // on blinde grossièrement (utilisation de regex pour etre plus précis)

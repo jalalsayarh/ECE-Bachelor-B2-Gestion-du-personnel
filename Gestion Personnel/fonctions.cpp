@@ -1025,7 +1025,7 @@ bool connexion_bdd(MYSQL*mysql)
     
    
     mysql_options(mysql,MYSQL_READ_DEFAULT_GROUP,"option");
-    if(mysql_real_connect(mysql,"localhost:8888" ,"root","root","scola",0,NULL,0))
+    if(mysql_real_connect(mysql,"127.0.0.1" ,"root","root","scola",8889,NULL,0))
     {
         cout<<"----------------CONNEXION----------------"<<endl;
         cout<<"\nlogin: ";
@@ -1048,11 +1048,12 @@ bool connexion_bdd(MYSQL*mysql)
         unsigned int num_champs = 0;
         
         //On met le jeu de rÈsultat dans le pointeur result
-        result = mysql_use_result(mysql);
+        result = mysql_store_result(mysql);
+        //result = mysql_use_result(mysql);
         //On rÈcupËre le nombre de champs
         num_champs = mysql_num_fields(result);
         //on stock les valeurs de la ligne choisie
-        while ((row = mysql_fetch_row(result)))
+        while ( (row = mysql_fetch_row(result)) )
         {
             //On déclare un pointeur long non signé pour y stocker la taille des valeurs
             unsigned long *lengths;

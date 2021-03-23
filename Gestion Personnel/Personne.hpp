@@ -14,10 +14,11 @@ using namespace std;
 
 class Personne
 {
-    
+protected:
+    string prenom;
 //encapsulation des parametres
 private:
-    string prenom;
+    
     string nom;
     string email;
     int age;

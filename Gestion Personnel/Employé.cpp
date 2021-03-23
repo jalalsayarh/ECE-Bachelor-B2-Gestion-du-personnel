@@ -10,9 +10,6 @@ Employe::Employe(){}
 Employe::Employe(string lePrenom, string leNom, int lAge,string adresseEmail,string leNomDep,int leNumBureau):Personne(lePrenom, leNom, lAge, adresseEmail),nomDep(leNomDep),numBureau(leNumBureau){}
 
 
-
-
-
 // implémentation destructeur
 Employe::~Employe(){
     //cout<<"Destructeur de la clase Employé"<<endl;

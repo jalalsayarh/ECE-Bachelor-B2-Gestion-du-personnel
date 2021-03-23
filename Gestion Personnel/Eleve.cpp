@@ -112,12 +112,8 @@ string Eleve::affiche() //affichage des information relative a un eleve
         for (int i=0; i<nbrUE; i++) {
             affichage = affichage + static_cast<string>("UE") + to_string(i+1)+static_cast<string>(" (" ) + static_cast<string>(*(UE+i)) + static_cast<string>(") : ") + to_string(*(getnote()+i)) + static_cast<string>("/20\n");
         }
-        float moy=0;
-        for (int i=0; i<nbrUE; i++) {
-            moy = moy + *(note+i);
-        }
-        moy = moy / nbrUE;
-        affichage = affichage + static_cast<string>("\nMoyenne des générale : ") + to_string(moy);
+        
+        affichage = affichage + static_cast<string>("\nMoyenne des générale : ") + to_string(moyenneNote());
         
     }
     
@@ -129,7 +125,7 @@ void Eleve::newEleve()
 {
     Etudiant::newEtudiant();
     
-    cout<<"\n Combien d'Unités d'Enseignements l'éleve "<<Personne::getPrenom()<<" "<<Personne::getNom()<<" suit-il/elle ?\n ->";
+    cout<<"\n Combien d'Unités d'Enseignements l'éleve "<<prenom<<" "<<Personne::getNom()<<" suit-il/elle ?\n ->";
     while(!(cin >> nbrUE) || nbrUE < 1 ) // on blinde grossièrement (utilisation de regex pour etre plus précis)
     {
        if (cin.fail()) // si la saisie n'est pas un nombre on affiche une erreur et on demande de resaisir
@@ -168,15 +164,7 @@ void Eleve::modifNote()
     for (int i=0; i<getnbrUE(); i++) {
            cout<<"UE"<<i+1<<" ("<<*(getUE()+i)<<") : "<<*(getnote()+i)<<"/20"<<endl;
     }
-    
-    /*Modification partie 5 faite par coco : affichage de moyenne*/
-    float moy=0;
-    for (int i=0; i<getnbrUE(); i++) {
-        moy = moy + *(getnote());
-    }
-    int y = getnbrUE();
-    moy = moy / y;
-    cout<<"\nMoyenne des notes : "<<moy<<endl;
+    cout<<"\nMoyenne des notes : "<<moyenneNote()<<endl;
     // fin de modification
     
     int choix=blindage_Saisie_ChoixIntervalle("\n[1]-Modifier toutes les notes\n[2]-Modifier une seule note\n ->", 1, 2);
@@ -187,7 +175,7 @@ void Eleve::modifNote()
     else{
 
         if (note==NULL) {
-            cout<<"\n"<<getPrenom()<<" "<<getNom()<<" n'a pas encore de note. Aucune modification possible"<<endl;
+            cout<<"\n"<<prenom<<" "<<getNom()<<" n'a pas encore de note. Aucune modification possible"<<endl;
         }
         else
         {
@@ -270,5 +258,16 @@ void Eleve::modifNote()
             }
         }
     }
+}
 
+float Eleve::moyenneNote()
+{
+    float moy=0;
+    for (int i=0; i<getnbrUE(); i++) {
+        moy = moy + *(getnote());
+    }
+    int y = getnbrUE();
+    moy = moy / y;
+    
+    return moy;
 }
