@@ -451,6 +451,7 @@ void affiche_eleve(Personne* tab[],int nb)
 }
 
 
+
 // ////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/
 
 
@@ -1043,23 +1044,26 @@ bool connexion_bdd(MYSQL*mysql)
         //RequÍte qui sÈlectionne tout dans ma table scores
         mysql_query(mysql, "SELECT * FROM users");
         //DÈclaration des pointeurs de structure
-        MYSQL_RES *result = NULL;
-        MYSQL_ROW row;
-        unsigned int num_champs = 0;
+        MYSQL_RES *result=new MYSQL_RES();
         
+        MYSQL_ROW row;
+        //unsigned int i = 0;
+        unsigned int num_champs = 0;
+        //int j =1;
         //On met le jeu de rÈsultat dans le pointeur result
-        result = mysql_store_result(mysql);
-        //result = mysql_use_result(mysql);
+
+        //result = mysql_store_result(mysql);
+        result = mysql_use_result(mysql);
         //On rÈcupËre le nombre de champs
-        num_champs = mysql_num_fields(result);
-        //on stock les valeurs de la ligne choisie
-        while ( (row = mysql_fetch_row(result)) )
+        //num_champs = mysql_num_fields(result);        //on stock les valeurs de la ligne choisie
+        while ((row = mysql_fetch_row(result)))
         {
             //On déclare un pointeur long non signé pour y stocker la taille des valeurs
             unsigned long *lengths;
             //On stocke ces tailles dans le pointeur
             lengths = mysql_fetch_lengths(result);
 
+            //On fait une boucle pour avoir la
             //On fait une boucle pour avoir la valeur de chaque champs
 //            struct connect id;
 //            id.login=row[1];
@@ -1083,4 +1087,90 @@ bool connexion_bdd(MYSQL*mysql)
         cout<<mysql_error(mysql);
         return false;
     }
+}
+
+void saveIntoBDD(Personne* tab[],int nb,MYSQL*mysql)
+{
+    int i = 0;
+    char sql[256];
+    mysql_options(mysql,MYSQL_READ_DEFAULT_GROUP,"option");
+    if(mysql_real_connect(mysql,"127.0.0.1" ,"root","root","scola",8889,NULL,0))
+    {
+        while (i < nb) {
+                if((typeid(**(tab+i)).name())==typeid(Employe).name())
+             {
+             //snprintf(sql, sizeof(sql), "INSERT INTO Employe(champs,champs1,champs2)values ('','','')",(*(tab+i))->get...(),(*(tab+i))->get...(),(*(tab+i))->get...());
+             
+             }
+                if((typeid(**(tab+i)).name())==typeid(Etudiant).name())
+             {
+                //snprintf(sql, sizeof(sql), "INSERT INTO Etudiant (champs,champs1,champs2)values ('','','')",(*(tab+i))->get...(),(*(tab+i))->get...(),(*(tab+i))->get...());
+             }
+             if((typeid(**(tab+i)).name())==typeid(Eleve).name())
+             {
+                //snprintf(sql, sizeof(sql), "INSERT INTO Etudiant (champs,champs1,champs2)values ('','','')",(*(tab+i))->get...(),(*(tab+i))->get...(),(*(tab+i))->get...());
+             }
+
+            if(mysql_query(mysql, sql)) {
+                fprintf(stderr, "%s\n", mysql_error(mysql));
+            }
+            i++;
+        }
+    }
+}
+
+Personne* loadFromBDD(int* nbElements,MYSQL*mysql)
+{
+    Personne* tabPersonneFromBDD = new Personne();
+    mysql_options(mysql,MYSQL_READ_DEFAULT_GROUP,"option");
+    if(mysql_real_connect(mysql,"127.0.0.1" ,"root","root","scola",8889,NULL,0))
+//    if(mysql_real_connect(&mysql,"192.168.43.208","root","","tp1_cinema",0,NULL,0))
+    {
+        //RequÍte qui sÈlectionne tout dans ma table scores
+        mysql_query(mysql, "select * from Etudiant and Employe");
+        //DÈclaration des pointeurs de structure
+        MYSQL_RES *result= NULL;
+        
+        MYSQL_ROW row;
+        unsigned int i = 0;
+        unsigned int num_champs = 0;
+        *nbElements =0;
+        //On met le jeu de rÈsultat dans le pointeur result
+
+        result = mysql_store_result(mysql);
+//        result = mysql_use_result(mysql);
+        //On rÈcupËre le nombre de champs
+        num_champs = mysql_num_fields(result);        //on stock les valeurs de la ligne choisie
+        while ((row = mysql_fetch_row(result)))
+        {
+            //On déclare un pointeur long non signé pour y stocker la taille des valeurs
+            unsigned long *lengths;
+            //On stocke ces tailles dans le pointeur
+            lengths = mysql_fetch_lengths(result);
+
+            //On fait une boucle pour avoir la valeur de chaque champs
+            ((tabPersonneFromBDD+*nbElements))->setPrenom(row[0]); //si la preiere colone est bien le prenom
+            ((tabPersonneFromBDD+(*nbElements)))->setNom(row[1]);
+            ((tabPersonneFromBDD+(*nbElements)))->setAge(atoi(row[2]));
+            ((tabPersonneFromBDD+(*nbElements)))->setEmail(row[3]);
+            
+            //OPTIONNEL JUSTE UN AFFICAGE
+            for(i = 0; i < num_champs; i++)
+            {
+                //On ecrit toutes les valeurs
+                printf("\n%.*s ", (int) lengths[i], row[i] ? row[i] : "NULL");
+            }
+            printf("\n\n");
+            //On incrÈmente la position du joueur
+            (*nbElements)++;
+        }
+        //LibÈration du jeu de rÈsultat
+        mysql_free_result(result);
+    }
+    else
+    {
+        printf("Une erreur s'est produite lors de la connexion à la BDD: %s", mysql_error(mysql));
+        return NULL;
+    }
+    return tabPersonneFromBDD; //on renvoie la premiere case du tableau issu de la bdd
 }

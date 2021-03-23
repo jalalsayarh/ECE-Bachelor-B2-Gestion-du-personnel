@@ -82,7 +82,8 @@ void write(string nomFichier, elementListe *start);
 void read();    /* fonctions de lecture */
 
 bool connexion_bdd(MYSQL *mysql);
-
+void saveIntoBDD(Personne* tab[],int nb,MYSQL*mysql);
+Personne* loadFromBDD(/*Personne* tab[],int nb,*/int *nbElements,MYSQL*mysql);
 
 #endif /* fonctions_hpp */
 

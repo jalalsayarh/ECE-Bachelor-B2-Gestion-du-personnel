@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
     MYSQL mysql;
     mysql_init(&mysql); //Connection à mysql
     
-    if (connexion_bdd(&mysql))
+    if (true)//connexion_bdd(&mysql))
     {
         Employe em("Charles","Dubois",20,"charlesdubois@hotmail.fr","Compta",12); /* création d'un nouvel employé */
         Etudiant et ("nico","sarko",20,"charlesdubois@hotmail.fr","dev web",2020);  /* création d'un nouvel étudiant */
@@ -135,6 +135,7 @@ int main(int argc, const char * argv[]) {
                         cout<<"7. Trier le tableau par age.\n";
                         cout<<"8. Rechercher un élément dans le tableau.\n";
                         cout<<"9. Sauvegarder dans un fichier txt.\n";
+                        cout<<"10. Importer d'une BDD\n";
                         cout<<"0. Retour au menu principal.\n";
                         
                         int choix;
@@ -192,7 +193,15 @@ int main(int argc, const char * argv[]) {
                                 }
                                 break;
                             }
-                                
+                            case 10:
+                            {
+                                int elementsFromBDD;
+                                Personne* PfromBDD=loadFromBDD(&elementsFromBDD,&mysql);
+                                for (int i=0; i<elementsFromBDD; i++) {
+                                    cout<<(PfromBDD+i)->affiche()<<endl;
+                                }
+                                break;
+                            }
                             case 0: /** Retuor au menu pricipal*/
                                 refresh="ok";
                                 break;
